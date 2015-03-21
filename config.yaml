@@ -10,7 +10,7 @@ Params:
   Twitter: "Your ID."
   Github: "Your ID."
   ShowRelatedPost: True
-  Disqus: "Your Disqus."
+  Disqus: "djouxtech"
   SyntaxHighlightTheme: "solarized_dark.min.css"
 
 Indexes:
