@@ -1,0 +1,15 @@
+
+<!--sidebar start-->
+<aside>
+    <ul class="nav nav-pills nav-stacked">
+      {{ range $name, $taxonomy := .Site.Taxonomies.wiki_tags }}
+        <li role="presentation">
+            <a href=/wiki_tag/{{ $name }} class="">
+                <span> {{ $name }} </span>
+            </a>
+        </li>
+    {{end}}
+    </ul>
+</aside>
+
+<!--sidebar end-->

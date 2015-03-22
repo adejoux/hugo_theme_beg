@@ -19,6 +19,9 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ .Site.BaseURL }}/post">All Posts</a></li>
+                        {{range first 1 (where .Site.Pages "Section" "project") }}
+                          <li><a href="{{ .Site.BaseURL }}/project">Projects</a></li>
+                        {{ end }}
                         {{ range where .Site.Pages "Type" "page" }}
                         <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                         {{ end }}
@@ -46,9 +49,12 @@
                                 GitHub
                             </a>
                         </li>
+                                <li>{{ partial "google-cse.html" . }}</li>
                         {{ end }}
                     </ul>
                 </div>
             </div>
         </nav>
+
+
     </header>

@@ -1,9 +1,12 @@
 {{ partial "default_head.html" . }}
 
 <div class="row">
+    <div class="col-md-4">
+        {{ partial "wiki_sidebar.html" . }}
+    </div>
     <div class="col-md-8">
         <div class="posts">
-            {{ range first 10 (where .Data.Pages "Type" "post") }}
+            {{ range first 10 (where .Data.Pages "Type" "wiki") }}
             {{ .Render "li" }}
             {{ end }}
             <nav>
@@ -14,9 +17,7 @@
 
         </div>
     </div>
-    <div class="col-md-4">
-        {{ partial "sidebar.html" . }}
-    </div>
+
 </div>
 
 {{ partial "default_foot.html" . }}
