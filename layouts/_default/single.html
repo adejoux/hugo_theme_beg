@@ -21,6 +21,7 @@
             </div>
 
             <aside>
+                {{ partial "social.html" . }}
                 {{ $baseurl := .Site.BaseURL }}
                 <ul class="list-inline post-tags">
                     {{ range .Params.tags }}
