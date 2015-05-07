@@ -1,19 +1,19 @@
 {{ partial "default_head.html" . }}
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <article class="post">
 
             <header>
+                <h1 class="post-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h1>
                 <div class="post-date">
                     <span class="glyphicon glyphicon-calendar"></span>
                     <time datetime="{{ .Date.Format .Site.Params.DateForm }}">
                         {{ .Date.Format .Site.Params.DateForm }}
                     </time>
                 </div>
-                <h1 class="post-title">
-                    <a href="{{ .Permalink }}">{{ .Title }}</a>
-                </h1>
                 {{ $baseurl := .Site.BaseURL }}
                 <div class="tags">
                     {{ range .Params.tags }}
@@ -30,19 +30,22 @@
                 {{ partial "social.html" . }}
 
                 {{ if .Site.Params.ShowRelatedPost }}
-                <!-- Related post. -->
-                <h3>Related Post</h3>
-                <ul class="post-rels">
-                    {{ $page_link := .Permalink }}
-                    {{ $tags := .Params.tags }}
-                    {{ range .Site.Pages }}
-                    {{ $page := . }}
-                    {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
-                    {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
-                    <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
-                    {{ end }}
-                    {{ end }}
-                </ul>
+                    <div class="post-related" >
+                        <!-- Related post. -->
+                        <h1>Related Posts</h1>
+                        <ul class="post-rels">
+                            {{ $page_link := .Permalink }}
+                            {{ $tags := .Params.tags }}
+                            {{ range .Site.Pages }}
+                                {{ $page := . }}
+                                {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
+                                {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
+                                    <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </div>
+
             </aside>
             {{ end }}
             <!-- Pagination. -->
@@ -90,7 +93,7 @@ var disqus_shortname = '{{ .Site.Params.Disqus }}'; // required: replace example
 
         </article>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         {{ partial "sidebar.html" . }}
     </div>
 </div>

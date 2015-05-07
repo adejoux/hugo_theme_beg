@@ -115,7 +115,7 @@ hr {
 body {
   background-color: white;
   font-family: "Roboto", serif;
-  font-size: 1.5rem;
+  font-size: 16px;
   color: #333332;
 }
 
@@ -204,6 +204,21 @@ ul.share-buttons li{
 }
 
 .post-title a {
-        color: #333332; 
+        color: #333332;
         font-size: 1.2em;
+}
+
+aside {
+  font-size: 0.8em;
+}
+
+.post-related {
+  padding-top: 10px;
+}
+.post-related a {
+  font-size: 1.5em;
+}
+
+.post-related ul {
+  list-style-type: none;
 }
