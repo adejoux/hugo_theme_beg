@@ -1,19 +1,30 @@
 <aside>
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-12">
-            <h1>{{ .Title }}</h1>
-            {{ .Date.Format .Site.Params.DateForm }}
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">Projects</h2>
-                </div>
-                <div class="list-group">
-                    {{range first 10 (where .Site.Pages "Section" "project")}}
-                    <a href="{{.RelPermalink}}" class="list-group-item">{{ .Title }}</a>
+            <!-- using example from spf13 website : https://github.com/spf13/spf13.com/blob/master/layouts/project/single.html -->
+            <aside id="meta">
+                <div itemscope itemtype="http://schema.org/SoftwareApplication" id="projectmeta">
+                    {{ with .Params.project_name }}
+                        <h1 itemprop="name"> {{ . }} </h1>
                     {{ end }}
+
+                    {{ with .Params.project_description }}
+                    <em itemprop="name"> {{.}} </em><br>
+                    {{ end }}
+                    <span class="smaller" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                        by <span itemprop="name">Alain Dejoux.</span></span><br>
+                    {{ with .Params.official_url }} <a href="{{.}}">{{.}}</a> {{end}}<br>
+                    {{if isset .Params "download_url" }} <a id="download_link" class="DownloadButton" href="{{ index .Params "download_url" }}">
+                        <i class="icon-cloud-download"></i> Download{{if isset .Params "version" }}<span itemprop="softwareVersion"> {{ index .Params "version" }}</span>{{end}}
+                    {{if isset .Params "release_date" }}<br> <time itemprop="dateModified" datetime="{{ index .Params "release_date" }}" id="software_date"> {{ index .Params "release_date" }} </time> {{end}}
+                         </a><br>{{end}}
+                    {{if isset .Params "software_image" }} <meta itemprop="image" content="{{ index .Params "software_image" }}">{{end}}
+                    {{if isset .Params "download_url" }}<meta itemprop="downloadURL" content="{{ index .Params "download_url" }}">{{end}}
+                    <meta itemprop="publisher" content="{{ index .Params "publisher" | or "spf13.com" }}">
+                    <meta itemprop="softwareApplicationCategory" content="{{ index .Params "software_category" | or "UtilitiesApplication" }}">
+                    <meta itemprop="operatingSystems" content="{{ index .Params "operating_system" | or "Windows 7 and above, OSX 10.7 and above, linux" }}">
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
 </aside>
