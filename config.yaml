@@ -1,11 +1,11 @@
 BaseUrl: "http://example.com"
 LanguageCode: "en-us"
-Title: "Aglaus"
+Title: "djouxtech"
 
 Params:
   Author: "Your name."
   DateForm: "Mon, Jan 2, 2006"
-  GoogleAnalyticsUserID: "Your ID."
+  Piwik: "stats.vm1.com"
   Facebook: "Your ID."
   Twitter: "Your ID."
   Github: "Your ID."
