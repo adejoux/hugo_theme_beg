@@ -1,7 +1,19 @@
 
 <aside>
     <div class="row">
+    {{ if .IsPage }}
+    <div class="col-xs-12 col-sm-4 col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Table Of Contents</h2>
+            </div>
 
+                {{ .TableOfContents }}
+
+        </div>
+    </div>
+
+    {{end}}
         <div class="col-xs-12 col-sm-4 col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -37,6 +49,7 @@
                 <div class="panel-heading">
                     <h2 class="panel-title">Disclaimer</h2>
                 </div>
+    }
 The information in this blog is provided “AS IS” with no warranties, and confers no rights. This blog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion.
             </div>
         </div>

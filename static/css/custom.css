@@ -273,3 +273,15 @@ a img {
     max-width: 100%;
     max-height: 100%;
 }
+
+#TableOfContents {
+    padding-top: 10px;
+}
+#TableOfContents ul {
+    list-style-type: none;
+    padding-left: 15px;
+}
+#TableOfContents a {
+  color: #555;
+
+}
