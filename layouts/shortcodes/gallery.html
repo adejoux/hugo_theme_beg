@@ -1,1 +1,1 @@
-<a id="gallery" href="javascript:;" ><img src=/images/{{ .Get "image" }} /></a>
+<a class="fancybox" rel="group" ><img src=/images/{{ .Get "image" }} {{ with .Get "title"}} title="{{.}}"{{ end }} /></a>
