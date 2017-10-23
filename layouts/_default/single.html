@@ -32,14 +32,14 @@
                     <div class="post-related" >
                         <!-- Related post. -->
                         <h1>Related Posts</h1>
-                        <ul class="post-rels">
+                        <ul class="post-rels links">
                             {{ $page_link := .Permalink }}
                             {{ $tags := .Params.tags }}
                             {{ range .Site.Pages }}
                                 {{ $page := . }}
                                 {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
                                 {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
-                                    <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+                                    <li><a class="center after" href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
                                 {{ end }}
                             {{ end }}
                         </ul>
