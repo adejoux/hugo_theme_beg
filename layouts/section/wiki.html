@@ -11,7 +11,7 @@
             {{ end }}
             <nav>
                 <ul class="pager">
-                    <li><a href="{{ .Site.BaseURL }}/post">All Posts</a></li>
+                    {{ partial "posts_link.html" . }}
                 </ul>
             </nav>
 

@@ -59,7 +59,7 @@
                         <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
                         {{ end }}
 
-                        <li><a href="{{ .Site.BaseURL }}/post">All Posts</a></li>
+                        {{ partial "posts_link.html" . }}
 
                         {{ if .Next }}
                         <li class="next"><a href="{{ .Next.Permalink }}">Newer <span aria-hidden="true">&rarr;</span></a></li>

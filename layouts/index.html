@@ -7,11 +7,8 @@
             {{ .Render "li" }}
             {{ end }}
             <nav>
-                <ul class="pager">
-                    <li><a href="{{ .Site.BaseURL }}/post">All Posts</a></li>
-                </ul>
+                {{ partial "posts_link.html" . }}
             </nav>
-
         </div>
     </div>
     <div class="col-md-3">

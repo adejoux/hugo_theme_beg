@@ -4,16 +4,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
 <meta property="og:url" content="{{ .Site.BaseURL }}">
-{{ if eq .URL "/" }}
+{{ if eq .Permalink "/" }}
 <!-- Index -->
 <meta property="og:type" content="website">
 {{ range first 1 .Data.Pages }}
 <meta property="og:title" content="{{ .Site.Title }}">
 {{ end }}
-{{ else if eq .URL "/post/" }}
+{{ else if eq .Permalink "/post/" }}
 <!-- Post -->
 <meta property="og:title" content="All Entries &middot; {{ .Site.Title }}">
-{{ else if in .URL "/tags/" }}
+{{ else if in .Permalink "/tags/" }}
 <!-- Category -->
 <meta property="og:title" content="{{ .Site.Title }}">
 {{ else }}
@@ -24,11 +24,11 @@
 <meta property="og:site_name" content="{{ .Site.Title }}">
 
 <title>
-    {{ if eq .URL "/" }}
+    {{ if eq .Permalink "/" }}
     {{ .Site.Title }}
-    {{ else if eq .URL "/post/" }}
+    {{ else if eq .Permalink "/posts/" }}
     All Entries &middot; {{ .Site.Title }}
-    {{ else if in .URL "/tags/" }}
+    {{ else if in .Permalink "/tags/" }}
     {{ .Site.Title }}
     {{ else }}
     {{ .Title }}
